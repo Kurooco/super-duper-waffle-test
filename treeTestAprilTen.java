@@ -24,7 +24,8 @@ class Tree
                     return this;
                 }
 
-                return leftNode.add(value);
+                leftNode.add(value);
+                return this;
             }
             else
             {
@@ -34,30 +35,41 @@ class Tree
                     return this;
                 }
 
-                return rightNode.add(value);
+                rightNode.add(value);
+                return this;
             }
         }
     }
 
-    TreeNode()
+    public Tree()
     {}
 
-    public Node add(Integer value)
+    public void add(Integer value)
     {
         if(head == null)
+        {
             head = new Node(value);
+            return;
+        }
         this.head = head.add(value);
     }
 
-    
+    //public void preOrder
 
     public static void main(String args[])
     {
         Tree tree = new Tree();
         tree.add(10);
+        tree.add(6);
+        tree.add(11);
+        tree.add(4);
+        tree.add(7);
+        tree.add(20);
         tree.add(5);
         tree.add(15);
-        System.out.println(tree.head.left.val);
+        tree.add(14);
+        tree.add(16);
+        System.out.println(tree.head.leftNode.leftNode.rightNode.val);
     }
     
 }
