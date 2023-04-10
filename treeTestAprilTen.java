@@ -2,6 +2,9 @@ class Tree
 {
     public Node head;
     public Integer val;
+
+    public Tree()
+    {}
     
     class Node
     {
@@ -39,10 +42,16 @@ class Tree
                 return this;
             }
         }
-    }
 
-    public Tree()
-    {}
+        public void preOrder()
+        {
+            System.out.println(this.val);
+            if(leftNode != null)
+                leftNode.preOrder();
+            if(rightNode != null)
+                rightNode.preOrder();
+        }
+    }
 
     public void add(Integer value)
     {
@@ -54,7 +63,10 @@ class Tree
         this.head = head.add(value);
     }
 
-    //public void preOrder
+    public void preOrder()
+    {
+        head.preOrder();
+    }
 
     public static void main(String args[])
     {
@@ -69,7 +81,8 @@ class Tree
         tree.add(15);
         tree.add(14);
         tree.add(16);
-        System.out.println(tree.head.leftNode.leftNode.rightNode.val);
+        tree.preOrder();
+        //System.out.println(tree.head.leftNode.leftNode.rightNode.val);
     }
     
 }
